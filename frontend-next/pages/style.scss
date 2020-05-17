@@ -1,0 +1,247 @@
+$font-primary: 'Muli', sans-serif;
+
+$white: #FFFFFF;
+$color2: #404040;
+$black: #333333;
+
+html {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+body {
+  overflow-y: scroll;
+  height: 100%;
+  margin: 0 auto;
+  font-family: $font-primary;
+  color: $black;
+  font-weight: normal;
+  background-color: $white;
+
+  a, a:hover, a:active {
+    color: $black;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .header {
+    background-color: $white;
+    color: $black;
+    width: 100%;
+    min-height: 35px;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    .pageName {
+      margin-left: 10px;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .breadcrumbs {
+      color: $black;
+      display: inline-block;
+      font-size: 18px;
+      margin: 0 8px;
+      font-weight: 900;
+      text-transform: uppercase;
+      height: 100%;
+
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px 0 0;
+
+        a {
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      }
+
+      span:first-child {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18 px;
+      }
+    }
+  }
+
+  .about {
+    margin-left: 25px;
+  }
+
+  .photoContainer {
+
+  }
+
+  .photoGrid {
+    min-height: 100%;
+  }
+
+  #mainPageWrapper {
+    @media (max-width: 480px) {
+      ul.grid-nav li {
+        display: block;
+        margin: 0 0 5px;
+      }
+      ul.grid-nav li a {
+        display: block;
+      }
+      ul.rig {
+        margin-left: 0;
+      }
+      ul.rig li {
+        width: 100% !important; /* over-ride all li styles */
+        margin: 0 0 20px;
+      }
+    }
+
+    a, a:visited, a:active, a:-webkit-any-link {
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 400;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+}
+
+.root {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.output {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  pointer-events: none;
+  width: 100%;
+  padding: 8px;
+  transform: translateY(100%);
+  transition: transform 200ms ease;
+  will-change: transform;
+}
+
+.caption::after {
+  content: '';
+  background-image: linear-gradient(transparent,rgba(0,0,0,.105),rgba(0,0,0,.4));
+  top: 0;
+  left: 0;
+  bottom: -10px;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.showcase {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: $font-primary;
+  justify-content: space-between;
+  color: white;
+
+  &::after {
+    content: "";
+    width: calc(50% - 2.5px);
+    @media screen and (min-width: 768px) {
+      width: calc(100% / 3 - 2.5px);
+    }
+    @media screen and (min-width: 1366px){
+      width: calc(25% - 2.5px);
+    }
+  }
+
+  .photo {
+    &:hover {
+      opacity: 0.9;
+    }
+    margin-bottom: 4px;
+    width: calc(50% - 2px);
+    padding-top: 75%;
+    @media screen and (min-width: 768px){
+      padding-top: calc(100% / 3 * 1.5);
+      width: calc(100% / 3 - 2px);
+    }
+    @media screen and (min-width: 1366px){
+      padding-top: calc(25% * 1.5);
+      width: calc(25% - 2px);
+    }
+    position: relative;
+    cursor: pointer;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height:100%;
+      width:100%;
+    }
+  }
+  .location {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    .country {
+      font-size: 14px;
+      @media screen and (min-width: 768px){
+        font-size: 20px;
+      }
+      display: block;
+    }
+    .place {
+      font-size: 20px;
+      line-height: 20px;
+      @media screen and (min-width: 768px){
+        font-size: 36px;
+        line-height: 36px;
+      }
+      display: block;
+    }
+  }
+}
